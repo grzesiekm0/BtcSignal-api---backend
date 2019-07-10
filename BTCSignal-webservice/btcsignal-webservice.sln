@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29009.5
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "btcsignal-webservice", "btcsignal-webservice.csproj", "{364ED941-47D4-40CC-AB3F-639A6BE3998E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{364ED941-47D4-40CC-AB3F-639A6BE3998E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{364ED941-47D4-40CC-AB3F-639A6BE3998E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{364ED941-47D4-40CC-AB3F-639A6BE3998E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{364ED941-47D4-40CC-AB3F-639A6BE3998E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1AF59192-D943-49B3-A93A-7EB5DBC94FF3}
+	EndGlobalSection
+EndGlobal
