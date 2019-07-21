@@ -29,7 +29,7 @@ namespace btcsignalwebservice.Controllers
 
         // GET: api/alert
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Alert>>> GetAlerts()
+        public async Task<ActionResult<IEnumerable<Alert>>> GetAlert()
         {
             return await _context.Alert.ToListAsync();
         }

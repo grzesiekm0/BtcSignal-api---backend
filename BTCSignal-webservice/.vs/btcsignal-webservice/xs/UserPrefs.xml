@@ -1,8 +1,8 @@
 ﻿<Properties StartupConfiguration="{364ED941-47D4-40CC-AB3F-639A6BE3998E}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="Startup.cs">
     <Files>
-      <File FileName="Controllers/ValuesController.cs" Line="22" Column="21" />
-      <File FileName="Controllers/EmptyClass.cs" Line="24" Column="63" />
+      <File FileName="Controllers/ValuesController.cs" Line="12" Column="6" />
+      <File FileName="Controllers/EmptyClass.cs" Line="41" Column="43" />
       <File FileName="Startup.cs" Line="1" Column="1" />
     </Files>
     <Pads>
