@@ -1,0 +1,13 @@
+/Users/grzegorzmacko/AndroidStudioProjects/BTC-Signal-webservice/BTCSignal-webservice/bin/Debug/netcoreapp2.1/btcsignal-webservice.deps.json
+/Users/grzegorzmacko/AndroidStudioProjects/BTC-Signal-webservice/BTCSignal-webservice/bin/Debug/netcoreapp2.1/btcsignal-webservice.runtimeconfig.json
+/Users/grzegorzmacko/AndroidStudioProjects/BTC-Signal-webservice/BTCSignal-webservice/bin/Debug/netcoreapp2.1/btcsignal-webservice.runtimeconfig.dev.json
+/Users/grzegorzmacko/AndroidStudioProjects/BTC-Signal-webservice/BTCSignal-webservice/bin/Debug/netcoreapp2.1/btcsignal-webservice.dll
+/Users/grzegorzmacko/AndroidStudioProjects/BTC-Signal-webservice/BTCSignal-webservice/bin/Debug/netcoreapp2.1/btcsignal-webservice.pdb
+/Users/grzegorzmacko/AndroidStudioProjects/BTC-Signal-webservice/BTCSignal-webservice/obj/Debug/netcoreapp2.1/btcsignal-webservice.csproj.CoreCompileInputs.cache
+/Users/grzegorzmacko/AndroidStudioProjects/BTC-Signal-webservice/BTCSignal-webservice/obj/Debug/netcoreapp2.1/btcsignal-webservice.RazorAssemblyInfo.cache
+/Users/grzegorzmacko/AndroidStudioProjects/BTC-Signal-webservice/BTCSignal-webservice/obj/Debug/netcoreapp2.1/btcsignal-webservice.RazorAssemblyInfo.cs
+/Users/grzegorzmacko/AndroidStudioProjects/BTC-Signal-webservice/BTCSignal-webservice/obj/Debug/netcoreapp2.1/btcsignal-webservice.AssemblyInfoInputs.cache
+/Users/grzegorzmacko/AndroidStudioProjects/BTC-Signal-webservice/BTCSignal-webservice/obj/Debug/netcoreapp2.1/btcsignal-webservice.AssemblyInfo.cs
+/Users/grzegorzmacko/AndroidStudioProjects/BTC-Signal-webservice/BTCSignal-webservice/obj/Debug/netcoreapp2.1/btcsignal-webservice.RazorTargetAssemblyInfo.cache
+/Users/grzegorzmacko/AndroidStudioProjects/BTC-Signal-webservice/BTCSignal-webservice/obj/Debug/netcoreapp2.1/btcsignal-webservice.dll
+/Users/grzegorzmacko/AndroidStudioProjects/BTC-Signal-webservice/BTCSignal-webservice/obj/Debug/netcoreapp2.1/btcsignal-webservice.pdb

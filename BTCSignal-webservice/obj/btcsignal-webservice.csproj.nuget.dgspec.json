@@ -1,30 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Grzesiek\\Documents\\Android Studio Project\\BTC-Signal\\btcsignal-webservice\\btcsignal-webservice.csproj": {}
+    "/Users/grzegorzmacko/AndroidStudioProjects/BTC-Signal-webservice/BTCSignal-webservice/btcsignal-webservice.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Grzesiek\\Documents\\Android Studio Project\\BTC-Signal\\btcsignal-webservice\\btcsignal-webservice.csproj": {
+    "/Users/grzegorzmacko/AndroidStudioProjects/BTC-Signal-webservice/BTCSignal-webservice/btcsignal-webservice.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Grzesiek\\Documents\\Android Studio Project\\BTC-Signal\\btcsignal-webservice\\btcsignal-webservice.csproj",
+        "projectUniqueName": "/Users/grzegorzmacko/AndroidStudioProjects/BTC-Signal-webservice/BTCSignal-webservice/btcsignal-webservice.csproj",
         "projectName": "btcsignal-webservice",
-        "projectPath": "C:\\Users\\Grzesiek\\Documents\\Android Studio Project\\BTC-Signal\\btcsignal-webservice\\btcsignal-webservice.csproj",
-        "packagesPath": "C:\\Users\\Grzesiek\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Grzesiek\\Documents\\Android Studio Project\\BTC-Signal\\btcsignal-webservice\\obj\\",
+        "projectPath": "/Users/grzegorzmacko/AndroidStudioProjects/BTC-Signal-webservice/BTCSignal-webservice/btcsignal-webservice.csproj",
+        "packagesPath": "/Users/grzegorzmacko/.nuget/packages/",
+        "outputPath": "/Users/grzegorzmacko/AndroidStudioProjects/BTC-Signal-webservice/BTCSignal-webservice/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Grzesiek\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/grzegorzmacko/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
