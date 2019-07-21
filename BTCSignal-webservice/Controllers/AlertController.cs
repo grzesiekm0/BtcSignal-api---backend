@@ -26,5 +26,26 @@ namespace btcsignalwebservice.Controllers
                 _context.SaveChanges();
             }
         }
+
+        // GET: api/alert
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Alert>>> GetAlerts()
+        {
+            return await _context.Alert.ToListAsync();
+        }
+
+        // GET: api/Todo/5
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Alert>> GetAlert(long id)
+        {
+            var todoItem = await _context.Alert.FindAsync(id);
+
+            if (todoItem == null)
+            {
+                return NotFound();
+            }
+
+            return todoItem;
+        }
     }
 }
