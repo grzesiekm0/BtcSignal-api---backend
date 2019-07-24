@@ -29,7 +29,7 @@ namespace btcsignalwebservice.Controllers
 
         // GET: api/alert
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Alert>>> GetAlert()
+        public async Task<ActionResult<IEnumerable<Alert>>> GetAlerts()
         {
             return await _context.Alert.ToListAsync();
         }
@@ -46,6 +46,16 @@ namespace btcsignalwebservice.Controllers
             }
 
             return todoItem;
+        }
+
+        // POST: api/Todo
+        [HttpPost]
+        public async Task<ActionResult<Alert>> PostTodoItem(Alert item)
+        {
+            _context.Alert.Add(item);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction(nameof(GetAlert), new { id = item.Id }, item);
         }
     }
 }
