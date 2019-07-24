@@ -50,12 +50,27 @@ namespace btcsignalwebservice.Controllers
 
         // POST: api/Todo
         [HttpPost]
-        public async Task<ActionResult<Alert>> PostTodoItem(Alert item)
+        public async Task<ActionResult<Alert>> Post(Alert item)
         {
             _context.Alert.Add(item);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction(nameof(GetAlert), new { id = item.Id }, item);
+        }
+
+        // PUT: api/Todo/5
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutAlert(long id, Alert item)
+        {
+            if (id != item.Id)
+            {
+                return BadRequest();
+            }
+
+            _context.Entry(item).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+
+            return NoContent();  
         }
     }
 }
