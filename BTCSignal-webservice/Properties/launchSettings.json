@@ -20,7 +20,7 @@
     "btcsignal_webservice": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "api/alert",
+      //"launchUrl": "api/alert",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

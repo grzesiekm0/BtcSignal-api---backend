@@ -48,6 +48,7 @@ namespace btcsignalwebservice.Controllers
             return todoItem;
         }
 
+
         // POST: api/Todo
         [HttpPost]
         public async Task<ActionResult<Alert>> Post(Alert item)
@@ -72,5 +73,23 @@ namespace btcsignalwebservice.Controllers
 
             return NoContent();  
         }
+
+        // DELETE: api/Todo/5
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteAlert(long id)
+        {
+            var todoItem = await _context.Alert.FindAsync(id);
+
+            if (todoItem == null)
+            {
+                return NotFound();
+            }
+
+            _context.Alert.Remove(todoItem);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
+
     }
 }
