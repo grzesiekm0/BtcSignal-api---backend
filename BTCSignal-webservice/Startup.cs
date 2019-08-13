@@ -27,8 +27,10 @@ namespace btcsignal_webservice
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<AlertContext>(opt =>
-               opt.UseInMemoryDatabase("AlertList"));
+            // services.AddDbContext<AlertContext>(opt =>
+            //  opt.UseInMemoryDatabase("AlertList"));
+            services.AddDbContext<AlertContext>(options =>
+               options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
