@@ -15,20 +15,8 @@ namespace btcsignal_webservice
     {
         public static void Main(string[] args)
         {
-            //CreateWebHostBuilder(args).Build().Run();
-            using (var db = new AlertContext())
-            {
-                db.Alert.Add(new btcsignalwebservice.Alert { Name = "http://blogs.msdn.com/adonet" });
-                var count = db.SaveChanges();
-                Console.WriteLine("{0} records saved to database", count);
-
-                Console.WriteLine();
-                Console.WriteLine("All blogs in database:");
-                foreach (var blog in db.Alert)
-                {
-                    Console.WriteLine(" - {0}", blog.Name);
-                }
-            }
+            CreateWebHostBuilder(args).Build().Run();
+            
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>

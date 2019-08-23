@@ -29,8 +29,8 @@ namespace btcsignal_webservice
         {
             // services.AddDbContext<AlertContext>(opt =>
             //  opt.UseInMemoryDatabase("AlertList"));
-            services.AddDbContext<AlertContext>(options =>
-               options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<AlertContext>(opt =>
+               opt.UseInMemoryDatabase("AlertList"));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
