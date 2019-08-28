@@ -5,12 +5,11 @@ namespace btcsignalwebservice.Model
 {
     public class AlertContext : DbContext
     {
-        public DbSet<Alert> Alert { get; set; }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public AlertContext(DbContextOptions<AlertContext> options)
+            : base(options)
         {
-            optionsBuilder.UseSqlite("Data Source=blogging.db");
         }
 
+        public DbSet<Alert> Alert { get; set; }
     }
 }
-
