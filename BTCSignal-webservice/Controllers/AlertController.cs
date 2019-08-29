@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using btcsignalwebservice.Model;
 
 namespace btcsignalwebservice.Controllers
-{
+{ //test 
     [Route("api/[controller]")]
     [ApiController]
     public class AlertController : ControllerBase
