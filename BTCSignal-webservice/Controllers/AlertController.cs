@@ -27,7 +27,7 @@ namespace btcsignalwebservice.Controllers
             }
         }
 
-        // GET: api/alert
+        // GET: api/alert test
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Alert>>> GetAlerts()
         {
