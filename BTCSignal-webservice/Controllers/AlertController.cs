@@ -17,14 +17,7 @@ namespace btcsignalwebservice.Controllers
         public AlertController(AlertContext context)
         {
             _context = context;
-
-            if (_context.Alert.Count() == 0)
-            {
-                // Create a new TodoItem if collection is empty,
-                // which means you can't delete all TodoItems.
-                _context.Alert.Add(new Alert { Name = "Item1" });
-                _context.SaveChanges();
-            }
+            
         }
 
         // GET: api/alert test
@@ -51,7 +44,7 @@ namespace btcsignalwebservice.Controllers
 
         // POST: api/Todo
         [HttpPost]
-        public async Task<ActionResult<Alert>> Post(Alert item)
+        public async Task<ActionResult<Alert>> PostAlert(Alert item)
         {
             _context.Alert.Add(item);
             await _context.SaveChangesAsync();

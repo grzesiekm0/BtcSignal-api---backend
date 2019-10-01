@@ -5,6 +5,8 @@
 
         
       
+    <DockerComposeProjectPath>docker-compose.dcproj</DockerComposeProjectPath>
+    <UserSecretsId>21b43127-90b3-4e10-b8fd-6d20ad3a643b</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,6 +19,8 @@
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite.Core" Version="2.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.1.11" />
+    <PackageReference Include="Docker.DotNet" Version="3.125.2" />
+    <PackageReference Include="DockerDatabase" Version="0.6.0" />
   </ItemGroup>
 
   <ItemGroup>
