@@ -3,7 +3,7 @@ namespace btcsignalwebservice
 {
     public class Alert
     {
-        public long Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public bool IsComplete { get; set; }
     }
