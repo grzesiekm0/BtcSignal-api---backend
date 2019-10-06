@@ -1,10 +1,15 @@
 ﻿using System;
+using Microsoft.EntityFrameworkCore;
+
 namespace btcsignalwebservice.Model
 {
-    public class UserContext
+    public class UserContext : DbContext
     {
-        public UserContext()
+        public UserContext(DbContextOptions<UserContext> options)
+            : base(options)
         {
         }
+
+        public DbSet<User> Users { get; set; }
     }
 }
