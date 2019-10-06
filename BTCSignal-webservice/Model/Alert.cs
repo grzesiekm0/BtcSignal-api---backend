@@ -3,12 +3,12 @@ namespace btcsignalwebservice
 {
     public class Alert
     {
-        public int Id { get; set; }
-        public string alertId { get; set; }
-        public string exchange { get; set; }
-        public string course { get; set; }
-        public string currency { get; set; }
-        public int enableAlarm { get; set; }
+        public int AlertId { get; set; }
+        public string UserId { get; set; }
+        public string Exchange { get; set; }
+        public string Course { get; set; }
+        public string Currency { get; set; }
+        public int Status { get; set; }
     }
 
 }
