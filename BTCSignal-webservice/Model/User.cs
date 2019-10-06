@@ -1,10 +1,10 @@
 ﻿using System;
 namespace btcsignalwebservice.Model
 {
-    public class EmptyClass
+    public class User
     {
-        public EmptyClass()
-        {
-        }
+        public int UserId { get; set; }
+        public string PhoneNumber { get; set; }
+        public string Password { get; set; }     
     }
 }
