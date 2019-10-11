@@ -28,12 +28,17 @@ namespace btcsignalwebservice.Controllers
             return await _context.Users.ToListAsync();
         }
 
-        //// GET api/values/5
-        //[HttpGet("{id}")]
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
+        public async Task<ActionResult<User>> GetUser(long id)
+        {
+            var todoItem = await _context.Users.FindAsync(id);
+
+            if (todoItem == null)
+            {
+                return NotFound();
+            }
+
+            return todoItem;
+        }
 
         //// POST api/values
         //[HttpPost]
