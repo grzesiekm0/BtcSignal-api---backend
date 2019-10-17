@@ -24,14 +24,14 @@ namespace btcsignalwebservice.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Alert>>> GetAlerts()
         {
-            return await _context.Alert.ToListAsync();
+            return await _context.Alerts.ToListAsync();
         }
 
         // GET: api/Todo/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Alert>> GetAlert(long id)
         {
-            var todoItem = await _context.Alert.FindAsync(id);
+            var todoItem = await _context.Alerts.FindAsync(id);
 
             if (todoItem == null)
             {
@@ -46,17 +46,17 @@ namespace btcsignalwebservice.Controllers
         [HttpPost]
         public async Task<ActionResult<Alert>> PostAlert(Alert item)
         {
-            _context.Alert.Add(item);
+            _context.Alerts.Add(item);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetAlert), new { id = item.Id }, item);
+            return CreatedAtAction(nameof(GetAlert), new { id = item.AlertId }, item);
         }
 
         // PUT: api/Todo/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutAlert(long id, Alert item)
         {
-            if (id != item.Id)
+            if (id != item.AlertId)
             {
                 return BadRequest();
             }
@@ -71,14 +71,14 @@ namespace btcsignalwebservice.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAlert(long id)
         {
-            var todoItem = await _context.Alert.FindAsync(id);
+            var todoItem = await _context.Alerts.FindAsync(id);
 
             if (todoItem == null)
             {
                 return NotFound();
             }
 
-            _context.Alert.Remove(todoItem);
+            _context.Alerts.Remove(todoItem);
             await _context.SaveChangesAsync();
 
             return NoContent();

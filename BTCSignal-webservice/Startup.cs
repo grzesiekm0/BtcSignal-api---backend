@@ -30,6 +30,7 @@ namespace btcsignal_webservice
             // services.AddDbContext<AlertContext>(opt =>
             //  opt.UseInMemoryDatabase("AlertList"));
             services.AddDbContext<AlertContext>(options => options.UseSqlServer(Configuration.GetConnectionString("AlertTestDatabase")));
+            services.AddDbContext<UserContext>(options => options.UseSqlServer(Configuration.GetConnectionString("AlertTestDatabase")));
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);

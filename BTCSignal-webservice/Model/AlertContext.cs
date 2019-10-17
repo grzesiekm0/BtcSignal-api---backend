@@ -10,6 +10,6 @@ namespace btcsignalwebservice.Model
         {
         }
 
-        public DbSet<Alert> Alert { get; set; }
+        public DbSet<Alert> Alerts { get; set; }
     }
 }
