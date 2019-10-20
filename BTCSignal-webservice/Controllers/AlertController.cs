@@ -29,7 +29,7 @@ namespace btcsignalwebservice.Controllers
 
         // GET: api/Todo/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Alert>> GetAlert(long id)
+        public async Task<ActionResult<Alert>> GetAlert(int id)
         {
             var todoItem = await _context.Alerts.FindAsync(id);
 

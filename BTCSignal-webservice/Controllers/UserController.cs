@@ -13,7 +13,7 @@ namespace btcsignalwebservice.Controllers
     [Route("api/[controller]")]
     public class UserController : Controller
     {
-        
+
         private readonly UserContext _context;
 
         public UserController(UserContext context)
@@ -28,7 +28,8 @@ namespace btcsignalwebservice.Controllers
             return await _context.Users.ToListAsync();
         }
 
-        public async Task<ActionResult<User>> GetUser(long id)
+        [HttpGet("{id}")]
+        public async Task<ActionResult<User>> GetUser(int id)
         {
             var todoItem = await _context.Users.FindAsync(id);
 
