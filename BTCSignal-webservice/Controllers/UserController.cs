@@ -42,10 +42,10 @@ namespace btcsignalwebservice.Controllers
         }
 
         //// POST api/values
-        //[HttpPost]
-        //public void Post([FromBody]string value)
-        //{
-        //}
+        [HttpPost]
+        public void Post([FromBody]string value)
+        {
+        }
 
         //// PUT api/values/5
         //[HttpPut("{id}")]
