@@ -41,10 +41,14 @@ namespace btcsignalwebservice.Controllers
             return todoItem;
         }
 
-        //// POST api/values
+        // POST: api/Todo
         [HttpPost]
-        public void Post([FromBody]string value)
+        public async Task<ActionResult<User>> PostUser(User item)
         {
+            _context.Users.Add(item);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction(nameof(GetUser), new { id = item.UserId }, item);
         }
 
         //// PUT api/values/5
