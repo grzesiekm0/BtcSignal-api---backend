@@ -51,11 +51,20 @@ namespace btcsignalwebservice.Controllers
             return CreatedAtAction(nameof(GetUser), new { id = item.UserId }, item);
         }
 
-        //// PUT api/values/5
-        //[HttpPut("{id}")]
-        //public void Put(int id, [FromBody]string value)
-        //{
-        //}
+        // PUT: api/Todo/5
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutUser(long id, User item)
+        {
+            if (id != item.UserId)
+            {
+                return BadRequest();
+            }
+
+            _context.Entry(item).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
 
         //// DELETE api/values/5
         //[HttpDelete("{id}")]
