@@ -54,7 +54,7 @@ namespace btcsignalwebservice.Controllers
 
         // PUT: api/Todo/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutAlert(long id, Alert item)
+        public async Task<IActionResult> PutAlert(int id, Alert item)
         {
             if (id != item.AlertId)
             {
@@ -69,7 +69,7 @@ namespace btcsignalwebservice.Controllers
 
         // DELETE: api/Todo/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteAlert(long id)
+        public async Task<IActionResult> DeleteAlert(int id)
         {
             var todoItem = await _context.Alerts.FindAsync(id);
 
