@@ -53,7 +53,7 @@ namespace btcsignalwebservice.Controllers
 
         // PUT: api/Todo/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutUser(long id, User item)
+        public async Task<IActionResult> PutUser(int id, User item)
         {
             if (id != item.UserId)
             {
@@ -66,10 +66,21 @@ namespace btcsignalwebservice.Controllers
             return NoContent();
         }
 
-        //// DELETE api/values/5
-        //[HttpDelete("{id}")]
-        //public void Delete(int id)
-        //{
-        //}
+        // DELETE: api/Todo/5
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteUser(int id)
+        {
+            var todoItem = await _context.Users.FindAsync(id);
+
+            if (todoItem == null)
+            {
+                return NotFound();
+            }
+
+            _context.Users.Remove(todoItem);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
     }
 }
