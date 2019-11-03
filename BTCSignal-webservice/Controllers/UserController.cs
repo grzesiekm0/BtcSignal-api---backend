@@ -31,53 +31,53 @@ namespace btcsignalwebservice.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<User>> GetUser(int id)
         {
-            var todoItem = await _context.Users.FindAsync(id);
+            var users = await _context.Users.FindAsync(id);
 
-            if (todoItem == null)
+            if (users == null)
             {
                 return NotFound();
             }
 
-            return todoItem;
+            return users;
         }
 
-        // POST: api/Todo
+        // POST: api/user
         [HttpPost]
-        public async Task<ActionResult<User>> PostUser(User item)
+        public async Task<ActionResult<User>> PostUser(User user)
         {
-            _context.Users.Add(item);
+            _context.Users.Add(user);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetUser), new { id = item.UserId }, item);
+            return CreatedAtAction(nameof(GetUser), new { id = user.UserId }, user);
         }
 
-        // PUT: api/Todo/5
+        // PUT: api/user/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutUser(int id, User item)
+        public async Task<IActionResult> PutUser(int id, User user)
         {
-            if (id != item.UserId)
+            if (id != user.UserId)
             {
                 return BadRequest();
             }
 
-            _context.Entry(item).State = EntityState.Modified;
+            _context.Entry(user).State = EntityState.Modified;
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        // DELETE: api/Todo/5
+        // DELETE: api/user/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUser(int id)
         {
-            var todoItem = await _context.Users.FindAsync(id);
+            var user = await _context.Users.FindAsync(id);
 
-            if (todoItem == null)
+            if (user == null)
             {
                 return NotFound();
             }
 
-            _context.Users.Remove(todoItem);
+            _context.Users.Remove(user);
             await _context.SaveChangesAsync();
 
             return NoContent();
