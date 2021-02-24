@@ -14,9 +14,9 @@ namespace btcsignalwebservice.Controllers
     public class UserController : Controller
     {
 
-        private readonly UserContext _context;
+        private readonly BtcSignalDbContext _context;
 
-        public UserController(UserContext context)
+        public UserController(BtcSignalDbContext context)
         {
             _context = context;
         }

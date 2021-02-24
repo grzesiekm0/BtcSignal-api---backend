@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using btcsignalwebservice.Model;
 
-namespace btcsignalwebservice.Migrations
+namespace btcsignalwebservice.Migrations.Alert
 {
     [DbContext(typeof(AlertContext))]
-    partial class AlertContextModelSnapshot : ModelSnapshot
+    [Migration("20210217212846_MyMigration")]
+    partial class MyMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

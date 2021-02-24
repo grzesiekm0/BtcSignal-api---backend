@@ -12,9 +12,9 @@ namespace btcsignalwebservice.Controllers
     [ApiController]
     public class AlertController : ControllerBase
     {
-        private readonly AlertContext _context;
+        private readonly BtcSignalDbContext _context;
 
-        public AlertController(AlertContext context)
+        public AlertController(BtcSignalDbContext context)
         {
             _context = context;
             

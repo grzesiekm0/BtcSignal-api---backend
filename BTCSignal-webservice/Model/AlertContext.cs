@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace btcsignalwebservice.Model
 {
+    [Obsolete("Not used any more", false)]
     public class AlertContext : DbContext
     {
         public AlertContext(DbContextOptions<AlertContext> options)
