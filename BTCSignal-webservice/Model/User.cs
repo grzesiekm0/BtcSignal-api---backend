@@ -1,5 +1,4 @@
-﻿using System;
-namespace btcsignalwebservice.Model
+﻿namespace btcsignalwebservice.Model
 {
     public class User
     {
