@@ -16,11 +16,13 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using btcsignalwebservice.Services;
 
 namespace btcsignal_webservice
 {
     public class Startup
     {
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -31,6 +33,8 @@ namespace btcsignal_webservice
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddCors();
             // services.AddDbContext<AlertContext>(opt =>
             //  opt.UseInMemoryDatabase("AlertList"));
             //services.AddDbContext<AlertContext>(options => options.UseSqlServer(Configuration.GetConnectionString("AlertTestDatabase")));
@@ -68,6 +72,9 @@ namespace btcsignal_webservice
                 };
             });
 
+            
+            services.AddScoped<IUserService, UserService>();
+            services.AddTransient<IMailService, SendGridMailService>();
             //services.AddControllersWithViews();
             //services.AddRazorPages();
             services.AddControllers();
@@ -76,7 +83,7 @@ namespace btcsignal_webservice
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
+            /*if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
@@ -90,12 +97,45 @@ namespace btcsignal_webservice
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseAuthentication();
             app.UseAuthorization();
+
             app.UseEndpoints(enpoints =>
             {
                 enpoints.MapControllers();
             });
+            */
 
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+
+            app.UseHttpsRedirection();
+
+            app.UseStaticFiles();
+
+            app.UseRouting();
+
+            /*app.UseCors(x => x
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .SetIsOriginAllowed(origin => true) // allow any origin
+                .AllowCredentials()); // allow credentials*/
+            app.UseCors(
+            options => options.WithOrigins("http://localhost:3000", "http://localhost:8081").AllowAnyMethod().AllowAnyHeader()
+            );
+
+            app.UseAuthentication();
+            app.UseAuthorization();
+
+            app.UseEndpoints(endpoints =>
+            {
+               // endpoints.MapRazorPages();
+                endpoints.MapControllers();
+            });
         }
     }
+    
 }
