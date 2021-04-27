@@ -1,8 +1,0 @@
-version: '3.4'
-
-services:
-  btcsignal-webservice:
-    image: ${DOCKER_REGISTRY-}btcsignalwebservice
-    build:
-      context: .
-      dockerfile: ./Dockerfile

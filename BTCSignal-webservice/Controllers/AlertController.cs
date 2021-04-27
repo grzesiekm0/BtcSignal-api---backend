@@ -3,11 +3,14 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using btcsignalwebservice.Model;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace btcsignalwebservice.Controllers
 { //test 
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
+    [Authorize]
     public class AlertController : ControllerBase
     {
         private readonly BtcSignalDbContext _context;
@@ -22,6 +25,7 @@ namespace btcsignalwebservice.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Alert>>> GetAlerts()
         {
+            //var userId = User.FindFirst(ClaimTypes.NameIdentifier);
             return await _context.Alerts.ToListAsync();
         }
 
