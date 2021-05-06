@@ -51,7 +51,8 @@ namespace btcsignal_webservice
                 options.Password.RequireLowercase = true;
                 options.Password.RequiredLength = 5;
             }
-            ).AddEntityFrameworkStores<AplicationDbContext>()
+            ).AddRoles<IdentityRole>()
+                .AddEntityFrameworkStores<AplicationDbContext>()
                 .AddDefaultTokenProviders();
 
             services.AddAuthentication(auth =>

@@ -10,12 +10,12 @@ namespace btcsignalwebservice.Controllers
 { //test 
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize]
-    public class AlertController : ControllerBase
+
+    public class AdminAlertController : ControllerBase
     {
         private readonly BtcSignalDbContext _context;
 
-        public AlertController(BtcSignalDbContext context)
+        public AdminAlertController(BtcSignalDbContext context)
         {
             _context = context;
             
@@ -23,7 +23,18 @@ namespace btcsignalwebservice.Controllers
 
         // GET: api/alert test
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Alert>>> GetAlerts()
+        [Authorize(Roles = "Admin")]
+        [Route("AlertsForAdmin")]
+        public async Task<ActionResult<IEnumerable<Alert>>> GetAlertsAdmin()
+        {
+            //var userId = User.FindFirst(ClaimTypes.NameIdentifier);
+            return await _context.Alerts.ToListAsync();
+        }
+
+        [HttpGet]
+        [Authorize(Roles = "User")]
+        [Route("AlertsForUser")]
+        public async Task<ActionResult<IEnumerable<Alert>>> GetAlertsUser()
         {
             //var userId = User.FindFirst(ClaimTypes.NameIdentifier);
             return await _context.Alerts.ToListAsync();

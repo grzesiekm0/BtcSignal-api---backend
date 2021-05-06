@@ -52,6 +52,8 @@ namespace btcsignalwebservice.Services
                     IsSuccess = false,
                 };
 
+            model.Roles = "Admin";
+
             var identityUser = new IdentityUser
             {
                 Email = model.Email,
@@ -59,7 +61,7 @@ namespace btcsignalwebservice.Services
             };
 
             var result = await _userManger.CreateAsync(identityUser, model.Password);
-
+            await _userManger.AddToRoleAsync(identityUser, model.Roles);
             if (result.Succeeded)
             {
                 var confirmEmailToken = await _userManger.GenerateEmailConfirmationTokenAsync(identityUser);
@@ -92,7 +94,7 @@ namespace btcsignalwebservice.Services
         public async Task<UserManagerResponse> LoginUserAsync(LoginViewModel model)
         {
             var user = await _userManger.FindByEmailAsync(model.Email);
-
+          
             if (user == null)
             {
                 return new UserManagerResponse
@@ -111,10 +113,22 @@ namespace btcsignalwebservice.Services
                     IsSuccess = false,
                 };
 
+            //Get role assign to user
+            var role = await _userManger.GetRolesAsync(user);
+            IdentityOptions _options = new IdentityOptions();
+
+            if (role == null)
+                return new UserManagerResponse
+                {
+                    Message = "Invalid role",
+                    IsSuccess = false,
+                };
+
             var claims = new[]
             {
                 new Claim("Email", model.Email),
                 new Claim(ClaimTypes.NameIdentifier, user.Id),
+                new Claim(_options.ClaimsIdentity.RoleClaimType, role.FirstOrDefault()),
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["AuthSettings:Key"]));

@@ -19,5 +19,8 @@ namespace btcsignal_identity_shared
         [Required]
         [StringLength(50, MinimumLength = 5)]
         public string ConfirmPassword { get; set; }
+
+        [StringLength(50, MinimumLength = 4)]
+        public string Roles { get; set; }
     }
 }
