@@ -146,7 +146,8 @@ namespace btcsignalwebservice.Services
             {
                 Message = tokenAsString,
                 IsSuccess = true,
-                ExpireDate = token.ValidTo
+                ExpireDate = token.ValidTo,
+                Role = role[0].ToString()
             };
         }
 

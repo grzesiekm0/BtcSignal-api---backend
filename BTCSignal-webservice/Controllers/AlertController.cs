@@ -11,11 +11,11 @@ namespace btcsignalwebservice.Controllers
     [ApiController]
     [Route("api/[controller]")]
 
-    public class AdminAlertController : ControllerBase
+    public class AlertController : ControllerBase
     {
         private readonly BtcSignalDbContext _context;
 
-        public AdminAlertController(BtcSignalDbContext context)
+        public AlertController(BtcSignalDbContext context)
         {
             _context = context;
             
@@ -67,6 +67,8 @@ namespace btcsignalwebservice.Controllers
 
         // PUT: api/Todo/5
         [HttpPut("{id}")]
+        [Authorize(Roles = "User")]
+
         public async Task<IActionResult> PutAlert(int id, Alert item)
         {
             if (id != item.AlertId)
