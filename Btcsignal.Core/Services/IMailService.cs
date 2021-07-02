@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace btcsignalwebservice.Services
+namespace Btcsignal.Core.Services
 {
    public interface IMailService
 {

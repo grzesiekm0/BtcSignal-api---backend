@@ -3,12 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29009.5
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "btcsignal-webservice", "btcsignal-webservice.csproj", "{364ED941-47D4-40CC-AB3F-639A6BE3998E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BtcSignal.Api", "BtcSignal.Api.csproj", "{364ED941-47D4-40CC-AB3F-639A6BE3998E}"
 	ProjectSection(ProjectDependencies) = postProject
 		{3B34ABE1-991A-4934-A60C-64807AEA7A1E} = {3B34ABE1-991A-4934-A60C-64807AEA7A1E}
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BtcSignalIdentity.Shared", "..\btcsignal-identity-shared\BtcSignalIdentity.Shared.csproj", "{3B34ABE1-991A-4934-A60C-64807AEA7A1E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4779AEBF-FBFC-4205-93BC-3FB1595EFFCB}"
+	ProjectSection(SolutionItems) = preProject
+		..\Btcsignal.Core\Btcsignal.Core.csproj = ..\Btcsignal.Core\Btcsignal.Core.csproj
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Btcsignal.Core", "..\Btcsignal.Core\Btcsignal.Core.csproj", "{F607F3BC-40E1-440D-A0A2-5B5D24F8E799}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Btcsignal.Infrastructures", "..\BtcSignal.Infrastructures\Btcsignal.Infrastructures.csproj", "{88070378-47E5-4E07-858E-19B11AB32D1B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,6 +33,14 @@ Global
 		{3B34ABE1-991A-4934-A60C-64807AEA7A1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B34ABE1-991A-4934-A60C-64807AEA7A1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B34ABE1-991A-4934-A60C-64807AEA7A1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F607F3BC-40E1-440D-A0A2-5B5D24F8E799}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F607F3BC-40E1-440D-A0A2-5B5D24F8E799}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F607F3BC-40E1-440D-A0A2-5B5D24F8E799}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F607F3BC-40E1-440D-A0A2-5B5D24F8E799}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88070378-47E5-4E07-858E-19B11AB32D1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88070378-47E5-4E07-858E-19B11AB32D1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88070378-47E5-4E07-858E-19B11AB32D1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88070378-47E5-4E07-858E-19B11AB32D1B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

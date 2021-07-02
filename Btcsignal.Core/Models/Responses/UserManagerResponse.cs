@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace btcsignal_identity_shared
+namespace Btcsignal.Core.Models.Responses
 {
     public class UserManagerResponse
     {

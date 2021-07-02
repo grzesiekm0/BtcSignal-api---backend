@@ -16,13 +16,15 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-using btcsignalwebservice.Services;
+//using btcsignalwebservice.Services;
+using Btcsignal.Core.Services;
+using Btcsignal.Core.Models;
 
 namespace btcsignal_webservice
 {
     public class Startup
     {
-        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+        //readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;

@@ -2,9 +2,10 @@
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using btcsignalwebservice.Model;
+using Btcsignal.Core.Models;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
+using Btcsignal.Core.Models.Dao;
 
 namespace btcsignalwebservice.Controllers
 { //test 

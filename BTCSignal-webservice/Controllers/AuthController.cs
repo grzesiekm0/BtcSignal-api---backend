@@ -1,7 +1,6 @@
-﻿using btcsignal_identity_shared;
-using btcsignalwebservice.Model;
-using btcsignalwebservice.Services;
-
+﻿using Btcsignal.Core.Models.Responses;
+//using btcsignalwebservice.Model;
+using Btcsignal.Core.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System;

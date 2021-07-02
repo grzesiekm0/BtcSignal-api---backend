@@ -1,4 +1,5 @@
 ﻿using System;
+using Btcsignal.Core.Models.Dao;
 using Microsoft.EntityFrameworkCore;
 
 namespace btcsignalwebservice.Model

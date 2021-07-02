@@ -1,7 +1,8 @@
 ﻿
+using Btcsignal.Core.Models.Dao;
 using Microsoft.EntityFrameworkCore;
 
-namespace btcsignalwebservice.Model
+namespace Btcsignal.Core.Models
 {
     public class BtcSignalDbContext : DbContext
 {

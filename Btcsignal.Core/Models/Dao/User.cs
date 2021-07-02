@@ -1,4 +1,4 @@
-﻿namespace btcsignalwebservice.Model
+﻿namespace Btcsignal.Core.Models.Dao
 {
     public class User
     {

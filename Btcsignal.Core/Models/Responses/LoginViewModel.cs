@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace btcsignal_identity_shared
+namespace Btcsignal.Core.Models.Responses
 {
-    public class RegisterViewModel
+    public class LoginViewModel
     {
+
         [Required]
         [StringLength(50)]
         [EmailAddress]
@@ -15,12 +16,5 @@ namespace btcsignal_identity_shared
         [Required]
         [StringLength(50, MinimumLength = 5)]
         public string Password { get; set; }
-
-        [Required]
-        [StringLength(50, MinimumLength = 5)]
-        public string ConfirmPassword { get; set; }
-
-        [StringLength(50, MinimumLength = 4)]
-        public string Roles { get; set; }
     }
 }

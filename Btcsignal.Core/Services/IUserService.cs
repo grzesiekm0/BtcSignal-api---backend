@@ -1,20 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using btcsignalwebservice.Model;
+//using Btcsignal.Core.Models;
 //using AspNetIdentityDemo.Shared;
-using btcsignal_identity_shared;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.WebUtilities;
-
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
+//using btcsignal_identity_shared;
 using System.Security.Claims;
 using System.Text;
 using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Identity;
+//using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNetCore.WebUtilities;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using Btcsignal.Core.Models.Responses;
+//using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace btcsignalwebservice.Services
+namespace Btcsignal.Core.Services
 {
     public interface IUserService
     {

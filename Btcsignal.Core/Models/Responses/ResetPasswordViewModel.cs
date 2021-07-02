@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace btcsignalwebservice.Model
+namespace Btcsignal.Core.Models.Responses
 {
    public class ResetPasswordViewModel
 {
