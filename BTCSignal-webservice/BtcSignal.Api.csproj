@@ -38,7 +38,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\btcsignal-identity-shared\BtcSignalIdentity.Shared.csproj" />
     <ProjectReference Include="..\Btcsignal.Core\Btcsignal.Core.csproj" />
     <ProjectReference Include="..\BtcSignal.Infrastructures\Btcsignal.Infrastructures.csproj" />
   </ItemGroup>
