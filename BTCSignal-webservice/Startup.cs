@@ -10,7 +10,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore;
-using btcsignalwebservice.Model;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -43,8 +42,8 @@ namespace btcsignal_webservice
             //services.AddDbContext<UserContext>(options => options.UseSqlServer(Configuration.GetConnectionString("AlertTestDatabase")));
             services.AddDbContext<BtcSignalDbContext>(options => 
             options.UseSqlServer(Configuration.GetConnectionString("AlertTestDatabase")));
-            services.AddDbContext<AplicationDbContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("AlertTestDatabase")));
+           /* services.AddDbContext<AplicationDbContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("AlertTestDatabase")));*/
 
             services.AddIdentity<IdentityUser, IdentityRole>(
             options =>
@@ -54,7 +53,7 @@ namespace btcsignal_webservice
                 options.Password.RequiredLength = 5;
             }
             ).AddRoles<IdentityRole>()
-                .AddEntityFrameworkStores<AplicationDbContext>()
+                .AddEntityFrameworkStores<BtcSignalDbContext>()
                 .AddDefaultTokenProviders();
 
             services.AddAuthentication(auth =>
