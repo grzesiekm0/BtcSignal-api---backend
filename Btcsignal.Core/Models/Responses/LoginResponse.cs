@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Btcsignal.Core.Models.Responses
 {
-    public class LoginViewModel
+    public class LoginResponse
     {
 
         [Required]

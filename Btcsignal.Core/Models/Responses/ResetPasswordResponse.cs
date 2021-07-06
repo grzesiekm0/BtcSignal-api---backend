@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Btcsignal.Core.Models.Responses
 {
-   public class ResetPasswordViewModel
+   public class ResetPasswordResponse
 {
     [Required]
     public string Token { get; set; }

@@ -25,7 +25,7 @@ public class AuthController : ControllerBase
 
         // /api/auth/register
         [HttpPost("Register")]
-        public async Task<IActionResult> RegisterAsync([FromBody] RegisterViewModel model)
+        public async Task<IActionResult> RegisterAsync([FromBody] RegisterResponse model)
         {
             if (ModelState.IsValid)
             {
@@ -42,7 +42,7 @@ public class AuthController : ControllerBase
 
          ///api/auth/Login
         [HttpPost("Login")]
-        public async Task<IActionResult> LoginAsync([FromBody] LoginViewModel model)
+        public async Task<IActionResult> LoginAsync([FromBody] LoginResponse model)
         {
             if (ModelState.IsValid)
             {
@@ -94,7 +94,7 @@ public class AuthController : ControllerBase
         
         // api/auth/ResetPassword
         [HttpPost("ResetPassword")]
-        public async Task<IActionResult> ResetPassword([FromForm] ResetPasswordViewModel model)
+        public async Task<IActionResult> ResetPassword([FromForm] ResetPasswordResponse model)
         {
             if (ModelState.IsValid)
             {

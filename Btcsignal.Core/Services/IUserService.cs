@@ -20,11 +20,11 @@ namespace Btcsignal.Core.Services
     public interface IUserService
     {
 
-        Task<UserManagerResponse> RegisterUserAsync(RegisterViewModel model);
-        Task<UserManagerResponse> LoginUserAsync(LoginViewModel model);
+        Task<UserManagerResponse> RegisterUserAsync(RegisterResponse model);
+        Task<UserManagerResponse> LoginUserAsync(LoginResponse model);
         Task<UserManagerResponse> ConfirmEmailAsync(string userId, string token);
         Task<UserManagerResponse> ForgetPasswordAsync(string email);
-        Task<UserManagerResponse> ResetPasswordAsync(ResetPasswordViewModel model);
+        Task<UserManagerResponse> ResetPasswordAsync(ResetPasswordResponse model);
     }
 
     public class UserService : IUserService
@@ -41,7 +41,7 @@ namespace Btcsignal.Core.Services
             _mailService = mailService;
         }
 
-        public async Task<UserManagerResponse> RegisterUserAsync(RegisterViewModel model)
+        public async Task<UserManagerResponse> RegisterUserAsync(RegisterResponse model)
         {
             if (model == null)
                 throw new NullReferenceException("Reigster Model is null");
@@ -92,7 +92,7 @@ namespace Btcsignal.Core.Services
 
         }
 
-        public async Task<UserManagerResponse> LoginUserAsync(LoginViewModel model)
+        public async Task<UserManagerResponse> LoginUserAsync(LoginResponse model)
         {
             var user = await _userManger.FindByEmailAsync(model.Email);
           
@@ -207,7 +207,7 @@ namespace Btcsignal.Core.Services
                 Message = "Reset password URL has been sent to the email successfully!"
             };
         }
-        public async Task<UserManagerResponse> ResetPasswordAsync(ResetPasswordViewModel model)
+        public async Task<UserManagerResponse> ResetPasswordAsync(ResetPasswordResponse model)
         {
             var user = await _userManger.FindByEmailAsync(model.Email);
             if (user == null)
