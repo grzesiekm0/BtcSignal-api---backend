@@ -5,7 +5,6 @@ using Btcsignal.Core.Models.Dao;
 using Btcsignal.Core.Models;
 using Microsoft.EntityFrameworkCore;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace btcsignalwebservice.Controllers
 {
@@ -20,13 +19,14 @@ namespace btcsignalwebservice.Controllers
             _context = context;
         }
 
-        // GET: api/values
+        
         [HttpGet]
         public async Task<ActionResult<IEnumerable<User>>> GetUsers()
         {
             return await _context.Users.ToListAsync();
         }
 
+        // GET: api/user/id
         [HttpGet("{id}")]
         public async Task<ActionResult<User>> GetUser(int id)
         {
@@ -50,7 +50,7 @@ namespace btcsignalwebservice.Controllers
             return CreatedAtAction(nameof(GetUser), new { id = user.UserId }, user);
         }
 
-        // PUT: api/user/5
+        // PUT: api/user/id
         [HttpPut("{id}")]
         public async Task<IActionResult> PutUser(int id, User user)
         {
@@ -65,7 +65,7 @@ namespace btcsignalwebservice.Controllers
             return NoContent();
         }
 
-        // DELETE: api/user/5
+        // DELETE: api/user/id
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUser(int id)
         {

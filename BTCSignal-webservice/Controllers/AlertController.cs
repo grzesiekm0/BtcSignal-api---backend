@@ -8,7 +8,7 @@ using System.Security.Claims;
 using Btcsignal.Core.Models.Dao;
 
 namespace btcsignalwebservice.Controllers
-{ //test 
+{ 
     [ApiController]
     [Route("api/[controller]")]
 
@@ -41,7 +41,7 @@ namespace btcsignalwebservice.Controllers
             return await _context.Alerts.ToListAsync();
         }
 
-        // GET: api/Todo/5
+        // GET: api/alert/AlertsForUser
         [HttpGet("{id}")]
         public async Task<ActionResult<Alert>> GetAlert(int id)
         {
@@ -56,7 +56,7 @@ namespace btcsignalwebservice.Controllers
         }
 
 
-        // POST: api/Todo
+        // POST: api/alert
         [HttpPost]
         public async Task<ActionResult<Alert>> PostAlert(Alert item)
         {
@@ -66,7 +66,7 @@ namespace btcsignalwebservice.Controllers
             return CreatedAtAction(nameof(GetAlert), new { id = item.AlertId }, item);
         }
 
-        // PUT: api/Todo/5
+        // PUT: api/alert/id
         [HttpPut("{id}")]
         [Authorize(Roles = "User")]
 
@@ -83,7 +83,7 @@ namespace btcsignalwebservice.Controllers
             return NoContent();  
         }
 
-        // DELETE: api/Todo/5
+        // DELETE: api/alert/id
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAlert(int id)
         {

@@ -1,5 +1,4 @@
 ﻿using Btcsignal.Core.Models.Responses;
-//using btcsignalwebservice.Model;
 using Btcsignal.Core.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -41,7 +40,7 @@ public class AuthController : ControllerBase
             return BadRequest("Some properties are not valid"); // Status code: 400
         }
 
-         ///api/auth/login
+         ///api/auth/Login
         [HttpPost("Login")]
         public async Task<IActionResult> LoginAsync([FromBody] LoginViewModel model)
         {
@@ -61,7 +60,7 @@ public class AuthController : ControllerBase
             return BadRequest("Some properties are not valid");
         }
         
-        // /api/auth/confirmemail?userid&token
+        // /api/auth/ConfirmEmail?userid&token
         [HttpGet("ConfirmEmail")]
         public async Task<IActionResult> ConfirmEmail(string userId, string token)
         {
@@ -78,7 +77,7 @@ public class AuthController : ControllerBase
             return BadRequest(result);
         }
         
-        // api/auth/forgetpassword
+        // api/auth/ForgetPassword
         [HttpPost("ForgetPassword")]
         public async Task<IActionResult> ForgetPassword(string email)
         {
@@ -93,7 +92,7 @@ public class AuthController : ControllerBase
             return BadRequest(result); // 400
         }
         
-        // api/auth/resetpassword
+        // api/auth/ResetPassword
         [HttpPost("ResetPassword")]
         public async Task<IActionResult> ResetPassword([FromForm] ResetPasswordViewModel model)
         {
