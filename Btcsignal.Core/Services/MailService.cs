@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Btcsignal.Core.Inerfaces.Services;
+using Microsoft.Extensions.Configuration;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 using System;
@@ -8,11 +9,6 @@ using System.Threading.Tasks;
 
 namespace Btcsignal.Core.Services
 {
-   public interface IMailService
-{
-
-    Task SendEmailAsync(string toEmail, string subject, string content);
-}
 
 public class SendGridMailService : IMailService
 {
