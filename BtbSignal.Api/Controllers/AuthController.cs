@@ -1,4 +1,5 @@
-﻿using Btcsignal.Core.Models.Responses;
+﻿using Btcsignal.Core.Inerfaces.Services;
+using Btcsignal.Core.Models.Responses;
 using Btcsignal.Core.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;

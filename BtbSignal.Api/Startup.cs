@@ -10,6 +10,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Btcsignal.Core.Services;
 using Btcsignal.Core.Models;
+using Btcsignal.Core.Inerfaces.Services;
 
 namespace btcsignal_webservice
 {

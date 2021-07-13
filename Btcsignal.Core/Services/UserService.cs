@@ -13,20 +13,11 @@ using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using Btcsignal.Core.Models.Responses;
+using Btcsignal.Core.Inerfaces.Services;
 //using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Btcsignal.Core.Services
 {
-    public interface IUserService
-    {
-
-        Task<UserManagerResponse> RegisterUserAsync(RegisterResponse model);
-        Task<UserManagerResponse> LoginUserAsync(LoginResponse model);
-        Task<UserManagerResponse> ConfirmEmailAsync(string userId, string token);
-        Task<UserManagerResponse> ForgetPasswordAsync(string email);
-        Task<UserManagerResponse> ResetPasswordAsync(ResetPasswordResponse model);
-    }
-
     public class UserService : IUserService
     {
 
