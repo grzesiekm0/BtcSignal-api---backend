@@ -28,7 +28,7 @@ namespace Btcsignal.Infrastructures.Repositories
            return (IEnumerable<Alert>)todoItem;
         }
 
-        public async Task<IEnumerable<Alert>> GetAllAlerts()
+        public async Task<IEnumerable<Alert>> GetAlertsAdmin()
         {
             return await _context.Alerts.ToListAsync();
         }

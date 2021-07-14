@@ -15,17 +15,16 @@ namespace Btcsignal.Core.Services
         {
             _alertRepository = alertRepository;
         }
-
+        public async Task<IEnumerable<Alert>> GetAlertsAdmin()
+        {
+            var result = await _alertRepository.GetAlertsAdmin();
+            return result;
+        }
         public async Task<IEnumerable<Alert>> GetAlert(int alertId)
         {
             var result = await _alertRepository.GetAlert(alertId);
             return result;
         }
-
-        public async Task<IEnumerable<Alert>> GetAllAlerts()
-        {
-            var result = await _alertRepository.GetAllAlerts();
-            return result;
-        }
     }
+
 }

@@ -30,7 +30,7 @@ namespace btcsignalwebservice.Controllers
         [HttpGet]
         [Authorize(Roles = "Admin")]
         [Route("AlertsForAdmin")]
-        public async Task<ActionResult<IEnumerable<Alert>>> GetAlertsAdmin() => Ok(await _alertService.GetAllAlerts());
+        public async Task<ActionResult<IEnumerable<Alert>>> GetAlertsAdmin() => Ok(await _alertService.GetAlertsAdmin());
         /*{
             //var userId = User.FindFirst(ClaimTypes.NameIdentifier);
             return await _context.Alerts.ToListAsync();
