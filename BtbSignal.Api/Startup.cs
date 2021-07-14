@@ -9,8 +9,10 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Btcsignal.Core.Services;
+using Btcsignal.Infrastructures.Repositories;
 using Btcsignal.Core.Models;
 using Btcsignal.Core.Inerfaces.Services;
+using Btcsignal.Core.Inerfaces.Repositories;
 
 namespace btcsignal_webservice
 {
@@ -59,8 +61,12 @@ namespace btcsignal_webservice
                 };
             });
 
-            
+            /*services.InjectServices();
+            services.InjectRepositories();*/
+
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IAlertRepository, AlertRepository>();
+            services.AddScoped<IAlertService, AlertService>();
             services.AddTransient<IMailService, SendGridMailService>();
             //services.AddControllersWithViews();
             //services.AddRazorPages();

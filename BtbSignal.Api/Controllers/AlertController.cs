@@ -6,6 +6,7 @@ using Btcsignal.Core.Models;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
 using Btcsignal.Core.Models.Dao;
+using Btcsignal.Core.Inerfaces.Services;
 
 namespace btcsignalwebservice.Controllers
 { 
@@ -15,22 +16,27 @@ namespace btcsignalwebservice.Controllers
     public class AlertController : ControllerBase
     {
         private readonly BtcSignalDbContext _context;
+        private IAlertService _alertService;
 
-        public AlertController(BtcSignalDbContext context)
+        public AlertController(BtcSignalDbContext context, IAlertService alertService)
         {
             _context = context;
-            
+            _alertService = alertService;
+
+
         }
 
         // GET: api/alert test
         [HttpGet]
         [Authorize(Roles = "Admin")]
         [Route("AlertsForAdmin")]
-        public async Task<ActionResult<IEnumerable<Alert>>> GetAlertsAdmin()
-        {
+        public async Task<ActionResult<IEnumerable<Alert>>> GetAlertsAdmin() => Ok(await _alertService.GetAllAlerts());
+        /*{
             //var userId = User.FindFirst(ClaimTypes.NameIdentifier);
             return await _context.Alerts.ToListAsync();
-        }
+        }*/
+
+
 
         [HttpGet]
         [Authorize(Roles = "User")]
@@ -43,8 +49,8 @@ namespace btcsignalwebservice.Controllers
 
         // GET: api/alert/AlertsForUser
         [HttpGet("{id}")]
-        public async Task<ActionResult<Alert>> GetAlert(int id)
-        {
+        public async Task<ActionResult<Alert>> GetAlert(int id) => Ok(await _alertService.GetAlert(id));
+        /*{
             var todoItem = await _context.Alerts.FindAsync(id);
 
             if (todoItem == null)
@@ -53,7 +59,7 @@ namespace btcsignalwebservice.Controllers
             }
 
             return todoItem;
-        }
+        }*/
 
 
         // POST: api/alert
