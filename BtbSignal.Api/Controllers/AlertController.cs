@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Btcsignal.Core.Models;
 using Microsoft.AspNetCore.Authorization;
-using System.Security.Claims;
 using Btcsignal.Core.Models.Dao;
 using Btcsignal.Core.Inerfaces.Services;
+using Microsoft.AspNetCore.Identity;
 
 namespace btcsignalwebservice.Controllers
 { 
@@ -17,50 +17,36 @@ namespace btcsignalwebservice.Controllers
     {
         private readonly BtcSignalDbContext _context;
         private IAlertService _alertService;
+        private UserManager<IdentityUser> _userManger;
 
-        public AlertController(BtcSignalDbContext context, IAlertService alertService)
+        public AlertController(BtcSignalDbContext context, IAlertService alertService, UserManager<IdentityUser> userManger)
         {
             _context = context;
             _alertService = alertService;
-
-
+            _userManger = userManger;
         }
 
-        // GET: api/alert test
+        // GET: api/alert/AlertsForAdmin
         [HttpGet]
         [Authorize(Roles = "Admin")]
         [Route("AlertsForAdmin")]
-        public async Task<ActionResult<IEnumerable<Alert>>> GetAlertsAdmin() => Ok(await _alertService.GetAlertsAdmin());
-        /*{
-            //var userId = User.FindFirst(ClaimTypes.NameIdentifier);
-            return await _context.Alerts.ToListAsync();
-        }*/
-
-
+        public async Task<IActionResult> GetAlertsAdmin() => Ok(await _alertService.GetAlertsAdmin());
 
         [HttpGet]
         [Authorize(Roles = "User")]
         [Route("AlertsForUser")]
-        public async Task<ActionResult<IEnumerable<Alert>>> GetAlertsUser()
+        public async Task<IActionResult> GetAlertsUser() 
         {
-            //var userId = User.FindFirst(ClaimTypes.NameIdentifier);
-            return await _context.Alerts.ToListAsync();
+            IdentityUser appUser = await _userManger.GetUserAsync(User);
+            string userId = appUser?.Id; 
+            var result = await _alertService.GetAlertsUser(userId);
+
+            return Ok(result);
         }
 
         // GET: api/alert/AlertsForUser
         [HttpGet("{id}")]
         public async Task<ActionResult<Alert>> GetAlert(int id) => Ok(await _alertService.GetAlert(id));
-        /*{
-            var todoItem = await _context.Alerts.FindAsync(id);
-
-            if (todoItem == null)
-            {
-                return NotFound();
-            }
-
-            return todoItem;
-        }*/
-
 
         // POST: api/alert
         [HttpPost]

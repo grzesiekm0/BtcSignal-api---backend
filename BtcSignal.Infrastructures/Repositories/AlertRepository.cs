@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 using System.Threading.Tasks;
 using Btcsignal.Core.Inerfaces.Repositories;
 using Btcsignal.Core.Models;
@@ -27,10 +28,22 @@ namespace Btcsignal.Infrastructures.Repositories
 
            return (IEnumerable<Alert>)todoItem;
         }
+        public async Task<IEnumerable<Alert>> GetAlertsUser(string userId)
+        {
+                var result = await (from b in _context.Alerts
+                                   where b.UserId.Equals(userId)
+                                   orderby b.AlertId descending
+                                   select b).ToListAsync();
+            
+            //var data = await _context.Alerts.OrderBy(a => a.AlertId);
 
+            //var res = await _context.Alerts.FindAsync(userId);
+            return result;//(IEnumerable<Alert>)res; // await _context.Alerts.Where.(b => b.alertId = 1010).ToListAsync();
+        }
         public async Task<IEnumerable<Alert>> GetAlertsAdmin()
         {
             return await _context.Alerts.ToListAsync();
         }
+
     }
 }
