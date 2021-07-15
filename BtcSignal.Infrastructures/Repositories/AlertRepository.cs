@@ -13,10 +13,27 @@ namespace Btcsignal.Infrastructures.Repositories
     public class AlertRepository : IAlertRepository
     {
         private readonly BtcSignalDbContext _context;
+
         public AlertRepository(BtcSignalDbContext context)
         {
             _context = context;
         }
+
+        public async Task<IEnumerable<Alert>> GetAlertsAdmin()
+        {
+            return await _context.Alerts.ToListAsync();
+        }
+        
+        public async Task<IEnumerable<Alert>> GetAlertsUser(string userId)
+        {
+                var result = await (from b in _context.Alerts
+                                   where b.UserId.Equals(userId)
+                                   orderby b.AlertId descending
+                                   select b).ToListAsync();
+           
+            return result;
+        }
+
         public async Task<IEnumerable<Alert>> GetAlert(int alertId)
         {
             var todoItem = await _context.Alerts.FindAsync(alertId);
@@ -26,23 +43,7 @@ namespace Btcsignal.Infrastructures.Repositories
                 return NotFound();
             }*/
 
-           return (IEnumerable<Alert>)todoItem;
-        }
-        public async Task<IEnumerable<Alert>> GetAlertsUser(string userId)
-        {
-                var result = await (from b in _context.Alerts
-                                   where b.UserId.Equals(userId)
-                                   orderby b.AlertId descending
-                                   select b).ToListAsync();
-            
-            //var data = await _context.Alerts.OrderBy(a => a.AlertId);
-
-            //var res = await _context.Alerts.FindAsync(userId);
-            return result;//(IEnumerable<Alert>)res; // await _context.Alerts.Where.(b => b.alertId = 1010).ToListAsync();
-        }
-        public async Task<IEnumerable<Alert>> GetAlertsAdmin()
-        {
-            return await _context.Alerts.ToListAsync();
+            return (IEnumerable<Alert>)todoItem;
         }
 
     }

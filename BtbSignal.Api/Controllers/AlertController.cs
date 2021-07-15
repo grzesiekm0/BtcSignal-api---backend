@@ -32,6 +32,7 @@ namespace btcsignalwebservice.Controllers
         [Route("AlertsForAdmin")]
         public async Task<IActionResult> GetAlertsAdmin() => Ok(await _alertService.GetAlertsAdmin());
 
+        // GET: api/alert/AlertsForUser
         [HttpGet]
         [Authorize(Roles = "User")]
         [Route("AlertsForUser")]
@@ -44,7 +45,7 @@ namespace btcsignalwebservice.Controllers
             return Ok(result);
         }
 
-        // GET: api/alert/AlertsForUser
+        
         [HttpGet("{id}")]
         public async Task<ActionResult<Alert>> GetAlert(int id) => Ok(await _alertService.GetAlert(id));
 
