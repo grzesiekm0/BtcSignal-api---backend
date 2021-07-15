@@ -50,6 +50,8 @@ namespace btcsignalwebservice.Controllers
 
         // POST: api/alert
         [HttpPost]
+        [Authorize(Roles = "User, Admin")]
+        [Route("AddAlert")]
         public async Task<ActionResult<Alert>> PostAlert(Alert item)
         {
             _context.Alerts.Add(item);
