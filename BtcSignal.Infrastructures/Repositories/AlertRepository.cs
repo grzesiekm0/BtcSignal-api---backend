@@ -7,6 +7,7 @@ using Btcsignal.Core.Inerfaces.Repositories;
 using Btcsignal.Core.Models;
 using Btcsignal.Core.Models.Dao;
 using Microsoft.EntityFrameworkCore;
+using Btcsignal.Core.Models.Responses;
 
 namespace Btcsignal.Infrastructures.Repositories
 {
@@ -34,6 +35,16 @@ namespace Btcsignal.Infrastructures.Repositories
             return result;
         }
 
+        public async Task<AlertCreateResponse> AddAlert(Alert item)
+        {
+             _context.Alerts.Add(item);
+            await _context.SaveChangesAsync();
+            return new AlertCreateResponse { 
+                Id = item.AlertId,
+                Message = "Successful addition!"
+            };
+        }
+
         public async Task<IEnumerable<Alert>> GetAlert(int alertId)
         {
             var todoItem = await _context.Alerts.FindAsync(alertId);
@@ -46,5 +57,6 @@ namespace Btcsignal.Infrastructures.Repositories
             return (IEnumerable<Alert>)todoItem;
         }
 
+        
     }
 }

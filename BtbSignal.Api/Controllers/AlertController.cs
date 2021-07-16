@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using Btcsignal.Core.Models.Dao;
 using Btcsignal.Core.Inerfaces.Services;
 using Microsoft.AspNetCore.Identity;
+using Btcsignal.Core.Models.Responses;
 
 namespace btcsignalwebservice.Controllers
 { 
@@ -49,16 +50,17 @@ namespace btcsignalwebservice.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Alert>> GetAlert(int id) => Ok(await _alertService.GetAlert(id));
 
-        // POST: api/alert
+        // POST: api/alert/AddAlert
         [HttpPost]
         [Authorize(Roles = "User, Admin")]
-        [Route("AddAlert")]
-        public async Task<ActionResult<Alert>> PostAlert(Alert item)
+        [Route("AddAlert")] 
+        public async Task<AlertCreateResponse> AddAlert(Alert item)
         {
-            _context.Alerts.Add(item);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction(nameof(GetAlert), new { id = item.AlertId }, item);
+            IdentityUser appUser = await _userManger.GetUserAsync(User);
+            string userId = appUser?.Id;
+            var result = await _alertService.AddAlert(item, userId);
+    
+            return result;
         }
 
         // PUT: api/alert/id
