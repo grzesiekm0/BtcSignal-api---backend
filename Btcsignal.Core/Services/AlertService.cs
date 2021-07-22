@@ -82,12 +82,12 @@ namespace Btcsignal.Core.Services
 
             if (item.UserId != userId)
             {
-                response.Message = "Badreqest: Invalid userId";
+                response.Message = "Bad request: Invalid userId";
                 return response;
             }
             if (item.AlertId != alertId)
             {
-                response.Message = "Badreqest: Invalid alertId";
+                response.Message = "Bad request: Invalid alertId";
                 return response;
             }
 
