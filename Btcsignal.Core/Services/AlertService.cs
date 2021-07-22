@@ -91,7 +91,7 @@ namespace Btcsignal.Core.Services
                 return response;
             }
 
-            //walidacja poprawności przynależności alertu
+            //Checking if the user has an alert
             var get = await _alertRepository.GetAlert(alertId);
             if (get.FirstOrDefault().UserId != userId || get.FirstOrDefault().AlertId != alertId)
             {
