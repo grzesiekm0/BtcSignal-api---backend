@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 //using Fluent.Infrastructure.FluentModel;
 using System.Security.Claims;
 using Btcsignal.Core.Models.Responses;
+using System.Linq;
 
 namespace Btcsignal.Core.Services
 {
@@ -75,7 +76,32 @@ namespace Btcsignal.Core.Services
 
             return response;
         }
+        public async Task<AlertCreateResponse> UpdateAlert(int alertId, Alert item, string userId)
+        {
+            var response = new AlertCreateResponse();
 
+            if (item.UserId != userId)
+            {
+                response.Message = "Badreqest: Invalid userId";
+                return response;
+            }
+            if (item.AlertId != alertId)
+            {
+                response.Message = "Badreqest: Invalid alertId";
+                return response;
+            }
+
+            //walidacja poprawności przynależności alertu
+            var get = await _alertRepository.GetAlert(alertId);
+            if (get.FirstOrDefault().UserId != userId || get.FirstOrDefault().AlertId != alertId)
+            {
+                response.Message = "Alert not found";
+                return response;
+            }
+
+            var result = await _alertRepository.UpdateAlert(item);
+            return result;
+        }
         public async Task<IEnumerable<Alert>> GetAlert(int alertId)
         {
             var result = await _alertRepository.GetAlert(alertId);

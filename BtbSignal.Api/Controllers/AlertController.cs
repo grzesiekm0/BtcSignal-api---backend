@@ -65,19 +65,15 @@ namespace btcsignalwebservice.Controllers
 
         // PUT: api/alert/id
         [HttpPut("{id}")]
-        [Authorize(Roles = "User")]
-
-        public async Task<IActionResult> PutAlert(int id, Alert item)
+        [Authorize(Roles = "User, Admin")]
+        //[Route("UpdateAlert")]
+        public async Task<AlertCreateResponse> UpdateAlert(int id, Alert item)
         {
-            if (id != item.AlertId)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(item).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
-
-            return NoContent();  
+            IdentityUser appUser = await _userManger.GetUserAsync(User);
+            string userId = appUser?.Id;
+            var result = await _alertService.UpdateAlert(id, item, userId);
+    
+            return result;
         }
 
         // DELETE: api/alert/id

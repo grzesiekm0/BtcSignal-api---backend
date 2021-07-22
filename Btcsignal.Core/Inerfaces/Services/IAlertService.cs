@@ -11,7 +11,8 @@ namespace Btcsignal.Core.Inerfaces.Services
     {
        Task<IEnumerable<Alert>> GetAlertsAdmin();
        Task<IEnumerable<Alert>> GetAlertsUser(string userId);
-        Task<AlertCreateResponse> AddAlert(Alert item, string userId);
+       Task<AlertCreateResponse> AddAlert(Alert item, string userId);
+       Task<AlertCreateResponse> UpdateAlert(int alertId, Alert item, string userId);
        Task<IEnumerable<Alert>> GetAlert(int alertId);
     }
 }

@@ -45,6 +45,23 @@ namespace Btcsignal.Infrastructures.Repositories
             };
         }
 
+        public async Task<AlertCreateResponse> UpdateAlert(Alert item)
+        {
+            var response = new AlertCreateResponse();
+
+            _context.Entry(item).State = EntityState.Modified;
+            var result = await _context.SaveChangesAsync();
+            if (result == 0)
+            {
+                response.Message = "Failed edition to db!";
+            }
+
+            response.Id = item.AlertId;
+            response.Message = "Successful edition!";
+
+            return response;
+        }
+
         public async Task<IEnumerable<Alert>> GetAlert(int alertId)
         {
             var todoItem = await _context.Alerts.FindAsync(alertId);
@@ -56,7 +73,5 @@ namespace Btcsignal.Infrastructures.Repositories
 
             return (IEnumerable<Alert>)todoItem;
         }
-
-        
     }
 }
