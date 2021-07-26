@@ -62,16 +62,16 @@ namespace Btcsignal.Infrastructures.Repositories
             return response;
         }
 
-        public async Task<IEnumerable<Alert>> GetAlert(int alertId)
+        public async Task<Alert> GetAlert(int alertId)
         {
-            var todoItem = await _context.Alerts.FindAsync(alertId);
+            //var todoItem = await _context.Alerts.FindAsync(alertId);
 
             /*if (todoItem == null)
             {
                 return NotFound();
             }*/
 
-            return (IEnumerable<Alert>)todoItem;
+            return await _context.Alerts.AsNoTracking().FirstOrDefaultAsync(x => x.AlertId == alertId);
         }
     }
 }

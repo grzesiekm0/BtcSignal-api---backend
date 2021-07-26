@@ -93,7 +93,7 @@ namespace Btcsignal.Core.Services
 
             //Checking if the user has an alert
             var get = await _alertRepository.GetAlert(alertId);
-            if (get.FirstOrDefault().UserId != userId || get.FirstOrDefault().AlertId != alertId)
+            if (get.UserId != userId || get.AlertId != alertId)
             {
                 response.Message = "Alert not found";
                 return response;
@@ -102,7 +102,7 @@ namespace Btcsignal.Core.Services
             var result = await _alertRepository.UpdateAlert(item);
             return result;
         }
-        public async Task<IEnumerable<Alert>> GetAlert(int alertId)
+        public async Task<Alert> GetAlert(int alertId)
         {
             var result = await _alertRepository.GetAlert(alertId);
             return result;
