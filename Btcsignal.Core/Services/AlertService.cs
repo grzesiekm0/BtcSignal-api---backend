@@ -1,16 +1,10 @@
 ﻿using Btcsignal.Core.Inerfaces.Repositories;
 using Btcsignal.Core.Inerfaces.Services;
 using Btcsignal.Core.Models.Dao;
-using Microsoft.AspNetCore.Identity;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
-//using Microsoft.AspNet.Identity;
-//using Fluent.Infrastructure.FluentModel;
-using System.Security.Claims;
 using Btcsignal.Core.Models.Responses;
-using System.Linq;
+
 
 namespace Btcsignal.Core.Services
 {
@@ -18,8 +12,6 @@ namespace Btcsignal.Core.Services
     {
         private IAlertRepository _alertRepository;
 
-
-        // public ClaimsPrincipal User { get; private set; }
 
         public AlertService(IAlertRepository alertRepository)
         {
@@ -41,6 +33,7 @@ namespace Btcsignal.Core.Services
             var response = new AlertCreateResponse();
             item.UserId = userId;
             item.AlertId = 0;
+
             //Parameters validation
             if (item.UserId == null)
             {

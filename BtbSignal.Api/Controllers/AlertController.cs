@@ -1,6 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using Btcsignal.Core.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -66,7 +64,6 @@ namespace btcsignalwebservice.Controllers
         // PUT: api/alert/id
         [HttpPut("{id}")]
         [Authorize(Roles = "User, Admin")]
-        //[Route("UpdateAlert")]
         public async Task<AlertCreateResponse> UpdateAlert(int id, Alert item)
         {
             IdentityUser appUser = await _userManger.GetUserAsync(User);
