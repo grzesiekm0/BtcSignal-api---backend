@@ -64,12 +64,6 @@ namespace Btcsignal.Infrastructures.Repositories
 
         public async Task<Alert> GetAlert(int alertId)
         {
-            //var todoItem = await _context.Alerts.FindAsync(alertId);
-
-            /*if (todoItem == null)
-            {
-                return NotFound();
-            }*/
 
             return await _context.Alerts.AsNoTracking().FirstOrDefaultAsync(x => x.AlertId == alertId);
         }
