@@ -6,12 +6,13 @@ using Btcsignal.Core.Models.Dao;
 using Btcsignal.Core.Inerfaces.Services;
 using Microsoft.AspNetCore.Identity;
 using Btcsignal.Core.Models.Responses;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace btcsignalwebservice.Controllers
 { 
     [ApiController]
     [Route("api/[controller]")]
-
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class AlertController : ControllerBase
     {
         private readonly BtcSignalDbContext _context;
@@ -88,6 +89,26 @@ namespace btcsignalwebservice.Controllers
             await _context.SaveChangesAsync();
 
             return NoContent();
+        }
+        // DELETE: api/OnOffAlert/id
+        [HttpPost("{id}")]
+        public async Task<bool> OnOffAlert(int id)
+        {
+            IdentityUser appUser = await _userManger.GetUserAsync(User);
+            string userId = appUser?.Id;
+
+
+           /* var todoItem = await _context.Alerts.FindAsync(id);
+
+            if (todoItem == null)
+            {
+                return NotFound();
+            }
+
+            _context.Alerts.Remove(todoItem);
+            await _context.SaveChangesAsync();*/
+
+            return await _alertService.OnOffAlert(id, userId);
         }
 
     }

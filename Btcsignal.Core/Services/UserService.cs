@@ -134,12 +134,15 @@ namespace Btcsignal.Core.Services
 
             string tokenAsString = new JwtSecurityTokenHandler().WriteToken(token);
 
+            var userId = await _userManger.GetUserIdAsync(user);
+
             return new UserManagerResponse
             {
                 Message = tokenAsString,
                 IsSuccess = true,
                 ExpireDate = token.ValidTo,
-                Role = role[0].ToString()
+                Role = role[0].ToString(),
+                UserId = userId
             };
         }
 

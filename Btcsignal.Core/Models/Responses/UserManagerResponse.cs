@@ -14,5 +14,7 @@ namespace Btcsignal.Core.Models.Responses
 
         [StringLength(50, MinimumLength = 4)]
         public string Role { get; set; }
+        public string UserId { get; set; }
+
     }
 }

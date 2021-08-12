@@ -67,5 +67,18 @@ namespace Btcsignal.Infrastructures.Repositories
 
             return await _context.Alerts.AsNoTracking().FirstOrDefaultAsync(x => x.AlertId == alertId);
         }
+
+        public async Task<bool> OnOffAlert(int alertId, bool onOff)
+        {
+            Alert alert = new Alert() { AlertId = alertId, Active = onOff };
+
+            _context.Alerts.Attach(alert);
+            _context.Entry(alert).Property(x => x.Active).IsModified = true;
+            var result = await _context.SaveChangesAsync();
+           
+            //_context.Entry(item).State = EntityState.Modified;
+            //var result = await _context.SaveChangesAsync();
+            return alert.Active;
+        }
     }
 }

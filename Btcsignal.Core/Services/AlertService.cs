@@ -43,17 +43,13 @@ namespace Btcsignal.Core.Services
             {
                 response.Message = response.Message + "Empty exchange. ";
             }
-            if (string.IsNullOrEmpty(item.Course))
+            if (item.Threshold == 0 & item.Threshold < 0)
             {
-                response.Message = response.Message + "Empty course. ";
+                response.Message = response.Message + "Empty Threshold. ";
             }
             if (string.IsNullOrEmpty(item.Currency))
             {
                 response.Message = response.Message + "Empty currency. ";
-            }
-            if (item.Status > 1 || item.Status < 0)
-            {
-                response.Message = response.Message + "Status can not be greater than 1 and less than 0. ";
             }
             if (!string.IsNullOrEmpty(response.Message))
             {
@@ -101,7 +97,20 @@ namespace Btcsignal.Core.Services
             return result;
         }
 
-        
+        public async Task<bool> OnOffAlert(int alertId, string userId)
+        {
+            //Checking if the user has an alert
+            var get = await _alertRepository.GetAlert(alertId);
+
+            if (get == null || get.UserId != userId || get.AlertId != alertId)
+            {               
+                return false;
+            }
+            if(get.Active)
+                return await _alertRepository.OnOffAlert(alertId, false);
+            var result = await _alertRepository.OnOffAlert(alertId, true);
+            return result;
+        }
     }
 
 }
