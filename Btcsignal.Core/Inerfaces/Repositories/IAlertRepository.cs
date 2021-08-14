@@ -14,6 +14,7 @@ namespace Btcsignal.Core.Inerfaces.Repositories
         Task<AlertCreateResponse> AddAlert(Alert item);
         Task<AlertCreateResponse> UpdateAlert(Alert item);
         Task<Alert> GetAlert(int alertId);
+        String GetTest(int alertId);
         Task<Boolean> OnOffAlert(int alertId, bool onOff);
     }
 }

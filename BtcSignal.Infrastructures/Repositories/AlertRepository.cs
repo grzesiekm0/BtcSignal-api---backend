@@ -64,8 +64,28 @@ namespace Btcsignal.Infrastructures.Repositories
 
         public async Task<Alert> GetAlert(int alertId)
         {
+            /*var optionsBuilder = new DbContextOptions<BtcSignalDbContext>();
+           *//* optionsBuilder.UseSqlServer(Configuration.GetConnectionStringSecureValue("DefaultConnection"));
+            _context = new ApplicationDbContext(optionsBuilder.Options);*//*
 
+            using (var context = new BtcSignalDbContext(optionsBuilder))
+            {
+                return await context.Alerts.AsNoTracking().FirstOrDefaultAsync(x => x.AlertId == alertId);
+            }*/
             return await _context.Alerts.AsNoTracking().FirstOrDefaultAsync(x => x.AlertId == alertId);
+        }
+        public String GetTest(int alertId)
+        {
+            /*var optionsBuilder = new DbContextOptions<BtcSignalDbContext>();
+           *//* optionsBuilder.UseSqlServer(Configuration.GetConnectionStringSecureValue("DefaultConnection"));
+            _context = new ApplicationDbContext(optionsBuilder.Options);*//*
+
+            using (var context = new BtcSignalDbContext(optionsBuilder))
+            {
+                return await context.Alerts.AsNoTracking().FirstOrDefaultAsync(x => x.AlertId == alertId);
+            }*/
+            var test = _context.Alerts.FirstOrDefault(x => x.AlertId == alertId);
+            return "Test!!!!!!!!!!!!!!!! ===== "+test.Currency;
         }
 
         public async Task<bool> OnOffAlert(int alertId, bool onOff)
