@@ -20,12 +20,17 @@ namespace BtcSignal.Api.Sheduler.Jobs
             _AlertRepository = alertService;
         }
 
-        public Task Execute(IJobExecutionContext context)
+        public async Task Execute(IJobExecutionContext context)
         {
+            string cos = "";
            // _logger.LogInformation("Hello world!");
-            _logger.LogInformation($"Notify User at {DateTime.Now} and test get alert: {_AlertRepository.GetTest(12)}");
+           foreach(var i in await _AlertRepository.GetTest(12))
+                {
+                cos = i.Currency;
+            }
+            _logger.LogInformation($"Notify User at {DateTime.Now} and test get alert: { cos }");
 
-            return Task.CompletedTask;
+            //return Task.CompletedTask;
         }
     }
 }

@@ -74,7 +74,7 @@ namespace Btcsignal.Infrastructures.Repositories
             }*/
             return await _context.Alerts.AsNoTracking().FirstOrDefaultAsync(x => x.AlertId == alertId);
         }
-        public String GetTest(int alertId)
+        public async Task<IEnumerable<Alert>> GetTest(int alertId)
         {
             /*var optionsBuilder = new DbContextOptions<BtcSignalDbContext>();
            *//* optionsBuilder.UseSqlServer(Configuration.GetConnectionStringSecureValue("DefaultConnection"));
@@ -84,8 +84,28 @@ namespace Btcsignal.Infrastructures.Repositories
             {
                 return await context.Alerts.AsNoTracking().FirstOrDefaultAsync(x => x.AlertId == alertId);
             }*/
-            var test = _context.Alerts.FirstOrDefault(x => x.AlertId == alertId);
-            return "Test!!!!!!!!!!!!!!!! ===== "+test.Currency;
+
+            /*var result = (from b in _context.Alerts
+                                where b.AlertId.Equals(alertId)
+                                orderby b.AlertId descending
+                                select b).DefaultIfEmpty().Where(x => x != null);*/
+            //var entity;
+            /*var optionsBuilder = new DbContextOptions<BtcSignalDbContext>();
+            using (var context = new BtcSignalDbContext(optionsBuilder))
+            {
+                return await context.Alerts.ToListAsync();// FirstOrDefaultAsync(x => x.AlertId == alertId);
+            }*/
+            //return await _context.Alerts.ToListAsync();
+
+
+         
+            return await _context.Alerts
+                .Where(file => file.AlertId == alertId)
+                .ToListAsync();
+            //var entity = await result.FirstOrDefaultAsync(x => x.AlertId == alertId);
+            // var test = await _context.Alerts.FirstOrDefaultAsync(x => x.AlertId == alertId);
+            //return "Test!!!!!!!!!!!!!!!! ===== "+result.Currency;
+            // return entity;
         }
 
         public async Task<bool> OnOffAlert(int alertId, bool onOff)
