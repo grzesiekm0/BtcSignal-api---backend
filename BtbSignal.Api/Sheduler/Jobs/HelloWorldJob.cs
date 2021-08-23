@@ -14,10 +14,12 @@ namespace BtcSignal.Api.Sheduler.Jobs
     {
         private readonly ILogger<HelloWorldJob> _logger;
         private readonly IAlertRepository _AlertRepository;
-        public HelloWorldJob(ILogger<HelloWorldJob> logger, IAlertRepository alertService)
+        private readonly IHttpClientServiceImplementation _http;
+        public HelloWorldJob(ILogger<HelloWorldJob> logger, IAlertRepository alertService, IHttpClientServiceImplementation http)
         {
             _logger = logger;
             _AlertRepository = alertService;
+            _http = http;
         }
 
         public async Task Execute(IJobExecutionContext context)
@@ -28,6 +30,8 @@ namespace BtcSignal.Api.Sheduler.Jobs
                 {
                 cos = i.Currency;
             }
+
+            await _http.GetCompaniesWithHttpClientFactory();
             _logger.LogInformation($"Notify User at {DateTime.Now} and test get alert: { cos }");
 
             //return Task.CompletedTask;

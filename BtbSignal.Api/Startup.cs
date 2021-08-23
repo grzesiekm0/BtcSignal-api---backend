@@ -22,6 +22,7 @@ using WorkerDemoService.Models;
 using System;
 using WorkerDemoService.Schedular;
 using BtcSignal.Api.Sheduler.Jobs;
+using Btcsignal.Infrastructures.Untils;
 
 namespace btcsignal_webservice
 {
@@ -79,6 +80,11 @@ namespace btcsignal_webservice
             services.AddTransient<IMailService, SendGridMailService>();
             //services.AddControllersWithViews();
             //services.AddRazorPages();
+
+            /*services.AddHttpClient<HttpClientUtils>();
+            services.AddSingleton<HttpClientUtilsFactory>();*/
+            services.AddHttpClient();
+            services.AddScoped<IHttpClientServiceImplementation, HttpClientFactoryService>();
 
             // Add the required Quartz.NET services
             services.AddQuartz(q =>
